@@ -59,3 +59,23 @@ In the second line, `month` is invalid because there's no '9' in octal. And `day
 * (b) is of `long double` type, which represents **31.4**.
 * (c) is of `float` type, which represents **1024.**.
 * (d) is of `long double` type, which represents **3.14**
+
+# Exercise 2.9
+(a)
+    ```
+     int input_value;
+     std::cin >> input_value;
+    ```
+
+(b): In C++11, you'll get an error "Warning: implict conversion from 'double' into 'int' changes value from '3.14' to '3'".
+     ```
+     double i{3.14};
+     ```
+
+(c): If you declared "wage" before=, that's right. If not, you'll get an error saying "Use of undeclared idedntifier 'wage'".
+     ```
+      double wage;
+      duoble salary = wage = 9999.99;
+     ```
+
+(d): That's right, but you'll get a truncated value of "i".
