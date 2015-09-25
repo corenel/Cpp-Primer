@@ -255,3 +255,70 @@ long *lp = &i;
 `void*` is a special type that can point to any objects, so 'p' can point to 'i'.
 
 But 'lp' is of 'long*' type, hence it can;t point to an int object.
+
+# Exercise 2.25
+> Determine the types and values of each of the following variables.
+- (a) int* ip, i, &r = i;
+- (b) int i, *ip = 0;
+- (c) int* ip, ip2;
+
+(a)
+* 'ip' is a pointer to int
+* 'i' is a int
+* 'r' is a reference to 'i'
+
+(b)
+* 'i' is an int
+* 'ip' is a nullptr
+
+(c)
+* 'ip' is a pointer to int
+* 'ip2' is an int.
+
+# Exercise 2.26
+>Which of the following are legal? For those that are illegal,
+explain why.
+
+```cpp
+const int buf;      // illegal, buf is uninitialized.
+int cnt = 0;        // legal.
+const int sz = cnt; // legal.
+++cnt; ++sz;        // illegal, attempt to write to const object(sz).
+```
+
+##Exercise 2.27
+> Which of the following initializations are legal? Explain why.
+
+```cpp
+int i = -1, &r = 0;         // illegal, r must refer to an object.
+int *const p2 = &i2;        // legal.
+const int i = -1, &r = 0;   // legal.
+const int *const p3 = &i2;  // legal.
+const int *p1 = &i2;        // legal
+const int &const r2;        // illegal, r2 is a reference that cannot be const.
+const int i2 = i, &r = i;   // legal.
+```
+
+##Exercise 2.28
+>Explain the following definitions. Identify any that are illegal.
+
+```cpp
+int i, *const cp;       // illegal, cp must initialize.
+int *p1, *const p2;     // illegal, p2 must initialize.
+const int ic, &r = ic;  // illegal, ic must initialize.
+const int *const p3;    // illegal, p3 must initialize.
+const int *p;           // legal. a pointer to const int.
+```
+
+##Exercise 2.29
+>Uing the variables in the previous exercise, which of the
+following assignments are legal? Explain why.
+
+```cpp
+i = ic;     // legal.
+p1 = p3;    // illegal. p3 is a pointer to const int.
+p1 = &ic;   // illegal. ic is a const int.
+p3 = &ic;   // illegal. p3 is a const pointer.
+p2 = p1;    // illegal. p2 is a const pointer.
+ic = *p3;   // illegal. ic is a const int.
+```
